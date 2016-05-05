@@ -1,0 +1,27 @@
+{
+  "name": "ConnectAnyDB",
+  "version": "0.1.0",
+  "description": "ConnectAnyDB",
+  "main": "hello-world-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified! Configure in package.json\" && exit 1"
+  },
+  "repository": "",
+  "keywords": [
+    "node.js",
+    "eclipse",
+    "nodeclipse"
+  ],
+  "author": "",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.12",
+    "mssql": "^3.2.1",
+    "mysql": "^2.10.2",
+    "oracledb": "git+https://github.com/bchr02/node-oracledb.git#v1.8.0"
+  }
+}

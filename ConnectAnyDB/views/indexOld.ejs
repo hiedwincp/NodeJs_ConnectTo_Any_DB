@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Connect MySQL DB App</title>
+<!-- CSS -->
+<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+	<h1><%= title %></h1>
+	<%= new Date() %>
+
+	<br>
+	<br>
+	<table border="2" class="table table-striped">
+		<tr>
+
+			<th>ID</th>
+			<th>Name</th>
+			<th>Date of Join</th>
+			<th>Salary in $</th>
+		</tr>
+		<tbody>
+
+			<% for (var i=0; i<employeeList.length; i++) { %>
+			<tr>
+				<td><%= employeeList[i].id %></td>
+				<td><%= employeeList[i].name %></td>
+				<td><%= employeeList[i].doj %></td>
+				<td><%= employeeList[i].salary %></td>
+			</tr>
+			<% } %> 
+		</tbody>
+	</table>
+	
+	<br>
+	<br>  
+	
+	<table border="2" class="table table-striped">
+		<tr>
+
+			<th>Category ID</th>
+			<th>Name</th>
+			<th>Description</th>
+		</tr>
+		<tbody>
+
+			<% for (var i=0; i
+			<categoryList.length; i++) { %>
+			<tr>
+				<td><%= categoryList[i].category %></td>
+				<td><%= categoryList[i].name %></td>
+				<td><%= categoryList[i].description %></td>
+			</tr>
+			<% } %> 
+		</tbody>
+	</table>
+	<br>
+	  <% include ./reportByTxCountVsDate.ejs %>
+	<br>
+	<table border="2" class="table table-striped">
+		<tr>
+
+			<th>Date (YYYY-MON)</th>
+			<th>TransctionCount</th>
+		</tr>
+		<tbody>
+
+			<% for (var i=0; i<bankTransctionList.length; i++) { %>
+			<tr>
+				<td><%= bankTransctionList[i][0] %></td>
+				<td><%= bankTransctionList[i][1] %></td>
+			
+			<% } %> 
+		</tbody>
+	</table>
+	<br>
+	
+	<br>
+	<h3>Add New Employee</h3>
+	<form action="/add" method="post">
+		<table border="0">
+			<tr>
+				<td>Employee ID :</td>
+				<td><input type="text" name="id"></td>
+			</tr>
+			<tr>
+				<td>Employee Name :</td>
+				<td><input type="text" name="name"></td>
+			</tr>
+			<tr>
+				<td>Employee DOJ :</td>
+				<td><input type="text" name="doj"></td>
+			</tr>
+			<tr>
+				<td>Employee Salary :</td>
+				<td><input type="text" name="salary"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Add Employee"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

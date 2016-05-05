@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+<div id="reportByTxCountVsBank" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+<script type="text/javascript">
+$(function () {
+    $('#reportByTxCountVsBank').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Bank Participation in Transactions by thier count '
+        },
+        subtitle: {
+            text: '* Date of Report Generation : <%= new Date() %>',
+            floating: true,
+            align: 'right',
+            verticalAlign: 'bottom',
+            y: 15
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Brands',
+            colorByPoint: true,
+            data: [{
+                name: 'CITIBANK_PALISADES',
+                y: 2311
+            }, {
+                name: 'BANK OF AMERICA LOCK BOX',
+                y:3
+               
+            }, {
+                name: 'TD BANKNORTH -REGULAR',
+                y: 537,
+                sliced: true,
+                selected: true
+            }]
+        }]
+    });
+});
+</script>
+<body>
+</body>
+</html>
